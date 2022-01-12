@@ -19,9 +19,15 @@ func GetWeather() string {
 	jsonStr := httpGetStr("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json")
 	weather := formatWeather(jsonStr)
 
-	area := fmt.Sprintf("%sの天気です。\n", weather.Area)
-	head := fmt.Sprintf("%s\n", weather.HeadLine)
-	body := fmt.Sprintf("%s\n", weather.Body)
+	result := weather.ToS()
+
+	return result
+}
+
+func (w *Weather) ToS() string {
+	area := fmt.Sprintf("%sの天気です。\n", w.Area)
+	head := fmt.Sprintf("%s\n", w.HeadLine)
+	body := fmt.Sprintf("%s\n", w.Body)
 	result := area + head + body
 
 	return result
