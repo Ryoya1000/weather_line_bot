@@ -3,7 +3,8 @@ package main
 import (
 	"log"
 	"os"
-	"weather_line_bot/weather"
+
+	"github.com/Ryoya1000/weather_line_bot/weather"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
